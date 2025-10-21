@@ -9,6 +9,11 @@
       "email": "email@example.com"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "gordonmcvey\\WarpCore\\middleware\\auth\\jwt\\": "src/"
+    }
+  },
   "require": {
     "php": ">=8.3.0",
     "ext-json": "*",
