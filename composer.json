@@ -2,7 +2,7 @@
   "name": "gordonmcvey/warp-core-middleware-auth-jwt",
   "description": "JWT authentication middleware for Warp Core",
   "license": "Apache-2.0",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "gordonmcvey",
@@ -22,8 +22,9 @@
   "require": {
     "php": ">=8.3.0",
     "ext-json": "*",
-    "gordonmcvey/warp-core-sdk": "dev-main",
-    "firebase/php-jwt": "dev-main"
+    "ext-openssl": "*",
+    "gordonmcvey/warp-core-sdk": "dev-main@dev",
+    "firebase/php-jwt": "^6.11"
   },
   "require-dev": {
     "phpunit/phpunit": "^12.4",
