@@ -22,7 +22,8 @@
   "require": {
     "php": ">=8.3.0",
     "ext-json": "*",
-    "gordonmcvey/warp-core-sdk": "dev-main"
+    "gordonmcvey/warp-core-sdk": "dev-main",
+    "firebase/php-jwt": "dev-main"
   },
   "require-dev": {
     "phpunit/phpunit": "^12.4",
