@@ -20,12 +20,16 @@ declare(strict_types=1);
 
 namespace gordonmcvey\WarpCore\middleware\auth\jwt\facade;
 
+use ArrayAccess;
 use DomainException;
 use Firebase\JWT\BeforeValidException;
 use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use InvalidArgumentException;
+use OpenSSLAsymmetricKey;
+use OpenSSLCertificate;
 use SensitiveParameter;
 use stdClass;
 use UnexpectedValueException;
@@ -36,6 +40,7 @@ use UnexpectedValueException;
 class JwtInstance
 {
     /**
+     * @param ArrayAccess<string,Key>|Key|array<string,Key> $keyOrKeyArray
      * @throws InvalidArgumentException
      * @throws DomainException
      * @throws UnexpectedValueException
@@ -45,13 +50,16 @@ class JwtInstance
      * @throws ExpiredException
      */
     public function decode(
-        string                $jwt,
-        #[SensitiveParameter] $keyOrKeyArray,
-        ?stdClass             &$headers = null
+        string                                      $jwt,
+        #[SensitiveParameter] array|Key|ArrayAccess $keyOrKeyArray,
+        ?stdClass                                   &$headers = null
     ): stdClass {
         return JWT::decode($jwt, $keyOrKeyArray, $headers);
     }
 
+    /**
+     * @param string|resource|OpenSSLAsymmetricKey|OpenSSLCertificate $key The secret key.
+     */
     public function encode(
         array                 $payload,
         #[SensitiveParameter] $key,
