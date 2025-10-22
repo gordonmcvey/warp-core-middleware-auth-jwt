@@ -47,7 +47,7 @@ class JwtHeaderAuthenticator implements MiddlewareInterface
             $token = $request->header(self::AUTH_HEADER);
             $decoded = $this->jwtInstance->decode($token, $this->key);
             // @todo Determine the identity of the token bearer
-        } catch (LogicException|TypeError $e) {
+        } catch (LogicException | TypeError $e) {
             // errors having to do with environmental setup or malformed JWT Keys
             return new Response(
                 responseCode: ServerErrorCodes::INTERNAL_SERVER_ERROR,
