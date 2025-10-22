@@ -16,7 +16,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "gordonmcvey\\WarpCore\\middleware\\auth\\jwt\\test\\": "tests/"
+      "gordonmcvey\\WarpCore\\middleware\\auth\\jwt\\test\\": "test/"
     }
   },
   "require": {
